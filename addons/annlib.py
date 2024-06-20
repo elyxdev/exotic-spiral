@@ -7,6 +7,6 @@ def logo():
 ┣┫┏┓┏┓┃┓┣┓  ┃ ┃┫
 ┛┗┛┗┛┗┗┗┗┛  ┻•┗┛                                             
 """, Colors.red_to_yellow, 0.009)
-    Write.Print("✧  Custom MSP loader", Colors.red_to_yellow, 0.05)
+    Write.Print("✧  Custom MSP loader", Colors.red_to_yellow, 0.009)
     print()
-    time.sleep(2.5)
+    time.sleep(2)
