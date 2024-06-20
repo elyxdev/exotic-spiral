@@ -1,24 +1,17 @@
-# build output
-dist/
-
-# generated types
-.astro/
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
-.DS_Store
-
-# jetbrains setting folder
-.idea/
+/Python*
+/work_area*
+/servidor_minecraft
+/minecraft_server
+/servidor_minecraft_old
+/tailscale-cs
+/thanos
+/servers
+/bkdir
+/vendor
+composer.*
+configuration.json
+configuracion.json
+*.txt
+*.pyc
+*.msp
+*.output
