@@ -70,8 +70,10 @@ def branch():
     print(gradient_text(f"Eliminando la rama remota '{new_branch_name}'", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     run_command(["git", "push", "origin", "--delete", new_branch_name])
 
+    # Crear la rama
+    os.system("git checkou")
     # Limpiar el índice de Git
-    clean_branch()
+    #clean_branch()
 
     # Añadir específicamente los archivos requeridos
     add_specific_files()
