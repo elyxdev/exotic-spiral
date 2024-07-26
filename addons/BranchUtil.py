@@ -66,7 +66,9 @@ def branch():
     # Eliminar la rama remota si existe
     print(gradient_text(f"Eliminando la rama remota '{new_branch_name}'", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     run_command(["git", "push", "origin", "--delete", new_branch_name])
-
+    # Eliminar la rama local si existe
+    os.system(f"git branch -d {new_branch_name}")
+    
     # Obtener la URL del repositorio
     print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     repo_url = get_remote_info()
