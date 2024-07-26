@@ -62,18 +62,23 @@ def force_push(branch_name, commit):
 def branch():
     new_branch_name = "Minecraft_branch"
 
-    # Obtener la URL del repositorio
-    print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
-    repo_url = get_remote_info()
 
     # Eliminar la rama remota si existe
     print(gradient_text(f"Eliminando la rama remota '{new_branch_name}'", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     run_command(["git", "push", "origin", "--delete", new_branch_name])
 
+    # Obtener la URL del repositorio
+    print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
+    repo_url = get_remote_info()
+
     # Crear la rama
-    os.system("git checkou")
+    os.system(f"git checkout -b {new_branch_name}")
+
     # Limpiar el índice de Git
     #clean_branch()
+
+    # Preparar para el checkout
+    os.system("git add . && git commit -a -m 'X' && git push")
 
     # Añadir específicamente los archivos requeridos
     add_specific_files()
