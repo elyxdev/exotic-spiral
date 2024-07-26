@@ -71,14 +71,15 @@ def branch():
     print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     repo_url = get_remote_info()
 
+    # Preparar para el checkout
+    os.system("git add . && git commit -a -m 'X' && git push")
+    
     # Crear la rama
     os.system(f"git checkout -b {new_branch_name}")
 
     # Limpiar el índice de Git
     #clean_branch()
 
-    # Preparar para el checkout
-    os.system("git add . && git commit -a -m 'X' && git push")
 
     # Añadir específicamente los archivos requeridos
     add_specific_files()
