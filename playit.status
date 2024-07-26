@@ -1,0 +1,18 @@
+8[0mno command provided, doing auto run[2J8[0mchecking if secret key is valid[2J8[0msecret key valid, agent has 0 tunnels[2J8[0mstarting up tunnel connection[2J8[0mGot Error
+MSG: Failed to setup tunnel client
+Error: FailedToConnect
+[2J8[0mGot Error
+MSG: Failed to setup tunnel client
+Error: FailedToConnect
+[2J8[0mGot Error
+MSG: Failed to setup tunnel client
+Error: FailedToConnect
+[2J8[0mGot Error
+MSG: Failed to setup tunnel client
+Error: FailedToConnect
+[2J8[0mGot Error
+MSG: Failed to setup tunnel client
+Error: FailedToConnect
+[2J8[0mGot Error
+MSG: Final attempted failed to setup tunnel
+Error: FailedToConnect
