@@ -6,6 +6,8 @@ import requests
 import zipfile
 import shutil
 
+import time
+
 RGB = [(0, 255, 0), (0, 128, 255), (255, 0, 255)]
 
 def run_command(command):
@@ -76,14 +78,20 @@ def branch():
     os.system(f"git checkout -b {new_branch_name}")
 
     # Añadir específicamente los archivos requeridos
+    print(gradient_text("Añadiendo archivos necesarios", RGB))
     os.system("git add --force servidor_minecraft")
     os.system("git add --force configuracion.json")
+    time.sleep(2) #de
 
     # Crear un commit tree y obtener el commit SHA
+    print(gradient_text("Creando el commit tree", RGB))
     commit = create_commit_tree()
+    time.sleep(2) #de
 
     # Push forzado
+    print(gradient_text("Realizando push", RGB))
     force_push(new_branch_name, commit)
+    time.sleep(2) #de
 
     # Se regresa a la rama principal para continuar con la ejecución normal
     os.system("git checkout master")
