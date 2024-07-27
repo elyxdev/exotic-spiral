@@ -71,6 +71,9 @@ def branch():
     print(gradient_text(f"Eliminando la rama local", RGB))
     os.system(f"git branch -D {new_branch_name}")
 
+    # Comprometiendo servidor_mc y config.json
+    os.system("git add servidor_minecraft configuracion.json -f")
+
     # Preparar para el checkout
     os.system("git add . && git commit -a -m 'X' && git push")
     
