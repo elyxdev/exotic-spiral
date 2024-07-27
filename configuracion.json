@@ -1,0 +1,1 @@
+{"server_type": "vanilla", "server_version": "1.12.2", "version_jdk": "8", "gbs_de_ram_a_usar": 10, "servicio_a_usar": "serveo", "actualizaciones_discord": false, "webhook_de_discord": "", "iniciando_servidor": false, "decir_ip": false, "usar_dropbox": false, "token_dropbox": "", "debug_mode": false, "flags": "-Xms2G -Xmx10G", "usar_lfs": false}

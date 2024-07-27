@@ -6,6 +6,8 @@ import requests
 import zipfile
 import shutil
 
+RGB = [(0, 255, 0), (0, 128, 255), (255, 0, 255)]
+
 def run_command(command):
     """Ejecutar un comando en el sistema y verificar si fue exitoso."""
     try:
@@ -56,14 +58,16 @@ def branch():
     new_branch_name = "minecraft_branch"
 
     # Obtener la URL del repositorio
-    print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
+    print(gradient_text("Obteniendo la URL del repositorio remoto", RGB))
     repo_url = run_command(["git", "remote", "-v"])
 
     # Eliminar la rama remota si existe
-    print(gradient_text(f"Eliminando la rama remota '{new_branch_name}'", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
+    print(gradient_text(f"Eliminando la rama remota", RGB))
     run_command(["git", "push", "origin", "--delete", new_branch_name])
+
     # Eliminar la rama local si existe
-    os.system(f"git branch -d {new_branch_name}")
+    print(gradient_text(f"Eliminando la rama local", RGB))
+    os.system(f"git branch -D {new_branch_name}")
 
     # Preparar para el checkout
     os.system("git add . && git commit -a -m 'X' && git push")
@@ -87,8 +91,8 @@ def branch():
     # Generar la URL de descarga del ZIP
     user_name, repo_name = repo_url.split('/')[-2], repo_url.split('/')[-1].replace('.git', '')
     zip_url = f"https://codeload.github.com/{user_name}/{repo_name}/zip/refs/heads/{new_branch_name}".replace(" (push)", "")
-    print(gradient_text(f"\nBranch creado/actualizado localmente: {new_branch_name}\nEnlace al branch para descargar en ZIP: {zip_url}", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
-    input(gradient_text("\nPresiona cualquier tecla para continuar...", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
+    print(gradient_text(f"\nBranch creado/actualizado localmente: {new_branch_name}\nEnlace al branch para descargar en ZIP: {zip_url}", RGB))
+    input(gradient_text("\nPresiona cualquier tecla para continuar...", RGB))
     
 def download_and_extract_zip(url, extract_to='.'):
     local_zip_file = "repo.zip"
