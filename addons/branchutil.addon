@@ -16,10 +16,9 @@ if "%redefinir_logo%"=="True" redefinir_logo_s none
 
 :button Crear Un Branch 
 text Crear Un Branch 
-say Es necesario cambiar el repositorio a publico al momento de pasar tu branch
-sleep 3
+say Recuerda que tu repositorio debe ser público, si ya es público presiona enter. Si no, hazlo público y presiona enter
+pause
 c_exec branch()
-sleep 3
 
 :button Instalar un Branch 
 text Instalar un Branch 
