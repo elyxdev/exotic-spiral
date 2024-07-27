@@ -1,7 +1,7 @@
 import subprocess
 import sys
-import re
 import os
+import glob
 import requests
 import zipfile
 import shutil
@@ -29,24 +29,12 @@ def gradient_text(text, colors):
         result += f'\033[38;2;{r};{g};{b}m{char}'
     return result + '\033[0m'
 
-def get_remote_info():
-    remote_info = run_command(["git", "remote", "-v"])
-
 def create_commit_tree():
     """Crear un nuevo commit tree desde el estado actual del índice."""
     commit_tree = run_command(["git", "write-tree"])
     commit_message = "Branch para guardar tu server_minecraft"
     commit = run_command(["git", "commit-tree", commit_tree, "-m", commit_message])
     return commit
-
-def clean_branch():
-    """Eliminar todos los archivos y carpetas del índice de Git."""
-    run_command(["git", "rm", "-r", "--cached", "."])
-
-def add_specific_files():
-    """Añadir específicamente la carpeta 'servidor_minecraft' y el archivo 'configuracion.json'."""
-    run_command(["git", "add", "--force", "servidor_minecraft"])
-    run_command(["git", "add", "--force", "configuracion.json"])
 
 def force_push(branch_name, commit):
     """Forzar el push al repositorio remoto en la rama especificada."""
@@ -60,18 +48,22 @@ def force_push(branch_name, commit):
         sys.exit(1)
 
 def branch():
-    new_branch_name = "Minecraft_branch"
+    # Cambia el directorio actual
+    
+    os.chdir(f"{glob.glob('/workspaces/*')[0]}/")
+    os.system("cd /workspaces/*/")
 
+    new_branch_name = "minecraft_branch"
+
+    # Obtener la URL del repositorio
+    print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
+    repo_url = run_command(["git", "remote", "-v"])
 
     # Eliminar la rama remota si existe
     print(gradient_text(f"Eliminando la rama remota '{new_branch_name}'", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
     run_command(["git", "push", "origin", "--delete", new_branch_name])
     # Eliminar la rama local si existe
     os.system(f"git branch -d {new_branch_name}")
-    
-    # Obtener la URL del repositorio
-    print(gradient_text("Obteniendo la URL del repositorio remoto", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
-    repo_url = get_remote_info()
 
     # Preparar para el checkout
     os.system("git add . && git commit -a -m 'X' && git push")
@@ -79,12 +71,9 @@ def branch():
     # Crear la rama
     os.system(f"git checkout -b {new_branch_name}")
 
-    # Limpiar el índice de Git
-    #clean_branch()
-
-
     # Añadir específicamente los archivos requeridos
-    add_specific_files()
+    os.system("git add --force servidor_minecraft")
+    os.system("git add --force configuracion.json")
 
     # Crear un commit tree y obtener el commit SHA
     commit = create_commit_tree()
@@ -92,14 +81,14 @@ def branch():
     # Push forzado
     force_push(new_branch_name, commit)
 
+    # Se regresa a la rama principal para continuar con la ejecución normal
+    os.system("git checkout master")
+
     # Generar la URL de descarga del ZIP
     user_name, repo_name = repo_url.split('/')[-2], repo_url.split('/')[-1].replace('.git', '')
-    zip_url = f"https://codeload.github.com/{user_name}/{repo_name}/zip/refs/heads/{new_branch_name}"
+    zip_url = f"https://codeload.github.com/{user_name}/{repo_name}/zip/refs/heads/{new_branch_name}".replace(" (push)", "")
     print(gradient_text(f"\nBranch creado/actualizado localmente: {new_branch_name}\nEnlace al branch para descargar en ZIP: {zip_url}", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
-
     input(gradient_text("\nPresiona cualquier tecla para continuar...", [(0, 255, 0), (0, 128, 255), (255, 0, 255)]))
-
-    sys.exit(0)
     
 def download_and_extract_zip(url, extract_to='.'):
     local_zip_file = "repo.zip"
