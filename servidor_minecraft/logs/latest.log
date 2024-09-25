@@ -1,26 +1,18 @@
-[19:43:14] [Server thread/INFO]: Starting minecraft server version 1.12.2
-[19:43:14] [Server thread/INFO]: Loading properties
-[19:43:14] [Server thread/INFO]: Default game type: SURVIVAL
-[19:43:14] [Server thread/INFO]: Generating keypair
-[19:43:15] [Server thread/INFO]: Starting Minecraft server on *:25565
-[19:43:15] [Server thread/INFO]: Using epoll channel type
-[19:43:15] [Server thread/INFO]: Preparing level "world"
-[19:43:15] [Server thread/INFO]: Loaded 488 advancements
-[19:43:16] [Server thread/INFO]: Preparing start region for level 0
-[19:43:17] [Server thread/INFO]: Preparing spawn area: 6%
-[19:43:18] [Server thread/INFO]: Preparing spawn area: 11%
-[19:43:19] [Server thread/INFO]: Preparing spawn area: 16%
-[19:43:20] [Server thread/INFO]: Preparing spawn area: 24%
-[19:43:21] [Server thread/INFO]: Preparing spawn area: 33%
-[19:43:22] [Server thread/INFO]: Preparing spawn area: 45%
-[19:43:23] [Server thread/INFO]: Preparing spawn area: 55%
-[19:43:24] [Server thread/INFO]: Preparing spawn area: 70%
-[19:43:25] [Server thread/INFO]: Preparing spawn area: 84%
-[19:43:25] [Server thread/INFO]: Done (10.770s)! For help, type "help" or "?"
-[19:43:29] [Server thread/INFO]: Stopping the server
-[19:43:29] [Server thread/INFO]: Stopping server
-[19:43:29] [Server thread/INFO]: Saving players
-[19:43:29] [Server thread/INFO]: Saving worlds
-[19:43:29] [Server thread/INFO]: Saving chunks for level 'world'/overworld
-[19:43:30] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
-[19:43:30] [Server thread/INFO]: Saving chunks for level 'world'/the_end
+[20:27:32] [Server thread/INFO]: Starting minecraft server version 1.12.2
+[20:27:32] [Server thread/INFO]: Loading properties
+[20:27:32] [Server thread/INFO]: Default game type: SURVIVAL
+[20:27:32] [Server thread/INFO]: Generating keypair
+[20:27:32] [Server thread/INFO]: Starting Minecraft server on *:25565
+[20:27:32] [Server thread/INFO]: Using epoll channel type
+[20:27:32] [Server thread/INFO]: Preparing level "world"
+[20:27:33] [Server thread/INFO]: Loaded 488 advancements
+[20:27:33] [Server thread/INFO]: Preparing start region for level 0
+[20:27:34] [Server thread/INFO]: Preparing spawn area: 16%
+[20:27:34] [Server thread/INFO]: Done (2.266s)! For help, type "help" or "?"
+[20:27:42] [Server thread/INFO]: Stopping the server
+[20:27:42] [Server thread/INFO]: Stopping server
+[20:27:42] [Server thread/INFO]: Saving players
+[20:27:42] [Server thread/INFO]: Saving worlds
+[20:27:42] [Server thread/INFO]: Saving chunks for level 'world'/overworld
+[20:27:42] [Server thread/INFO]: Saving chunks for level 'world'/the_nether
+[20:27:42] [Server thread/INFO]: Saving chunks for level 'world'/the_end
