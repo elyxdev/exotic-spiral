@@ -1,0 +1,45 @@
+:main
+a_name Elyx utils
+a_version 1.1
+a_author elyx
+
+:button restaurar_playit
+text Restaurar Playit
+cls
+say Restaurando playit...
+exec playit reset && sudo apt remove playit -y
+cls
+say Playit restaurado.
+pause
+
+:button eliminar_mundo
+text Eliminar mundo (No el servidor, solo el mundo)
+cls
+exec rm -rf world && rm -rf ./servidor_minecraft/world
+say Mundo eliminado!
+pause
+
+:button reinstalar_java
+text Reinstalar Java
+cls
+say Java 8 para versiones menores a la 1.14
+say Java 11 para versiones desde la 1.14 y menores a la 1.17
+say Java 17 para versiones desde la 1.17 en adelante
+input areinstalar Elige tu versión de Java a reinstalar > 
+java_reinstall %areinstalar%
+cls
+say Java %areinstalar% reinstalado.
+pause
+
+:section apagar_codespace
+cls
+say Selecciona tu codespace y luego apreta enter
+exec gh codespace stop
+cls
+say Apagando codespace, puedes cerrar esta ventana...
+pause
+
+:button apagar_codespace_q
+text Apagar codespace
+input xx Estás seguro de querer apagar tu codespace? (s/n) > 
+if "%xx%".lower()=="s" apagar_codespace none
